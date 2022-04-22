@@ -11,8 +11,5 @@ This is an example on how a basic app could look like.
 - create launch.json and download symbols
 - build (CTRL+SHIFT+B)
 - add your translation file to .gitignore
-- Change the build pipeline:
-  - the docker image
-  - the pool to the name of your build agent
 
 

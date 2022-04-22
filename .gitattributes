@@ -1,0 +1,4 @@
+# Enable syntax highlighting for files with `.gitattributes` extensions.
+#
+*.gitattributes linguist-language=gitattributes*.al linguist-language=AL
+*.al linguist-detectable=true

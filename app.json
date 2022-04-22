@@ -1,0 +1,27 @@
+{
+  "id": "<GUID>",
+  "name": "<Extension Name>",
+  "publisher": "Marley Spoon",
+  "version": "1.0.0.0",
+  "brief": "",
+  "description": "",
+  "privacyStatement": "",
+  "EULA": "",
+  "help": "",
+  "url": "",
+  "logo": "",
+  "dependencies": [],
+  "screenshots": [],
+  "application": "14.16.44342.0",
+  "platform": "14.0.44327.0",
+  "idRanges": [
+    {
+      "from": 50100,
+      "to": 50149
+    }
+  ],
+  "showMyCode": true,
+  "runtime": "3.0",
+  "features": ["TranslationFile"],
+  "target": "Extension"
+}

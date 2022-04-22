@@ -1,0 +1,7 @@
+*.zip
+*.app
+launch.json
+rad.json
+.alcache
+Translations/*.g.xlf
+

@@ -1,5 +1,5 @@
 # Introduction 
-This is an example on how a basic app could look like, including a basic build pipeline with ALOps.
+This is an example on how a basic app could look like.
 
 # Getting Started
 - Import of Fork this repository to start development of your own app

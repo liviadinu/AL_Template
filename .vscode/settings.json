@@ -5,6 +5,6 @@
         "${UICop}",
         "${PerTenantExtensionCop}"
     ],
-    "CRS.OnSaveAlFileAction": "Rename",
-    "CRS.AlSubFolderName": "None"
+    "CRS.OnSaveAlFileAction": "Reorganize",
+    "CRS.AlSubFolderName": "src"
 }

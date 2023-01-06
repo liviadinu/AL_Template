@@ -204,10 +204,14 @@ codeunit 9033 "Invite External Accountant"
     end;
 
     [Scope('OnPrem')]
-    procedure VerifySMTPIsEnabledAndSetupCustom(ParameterABC: Text): Boolean
+    procedure VerifySMTPIsEnabledAndSetupCustom(ParameterChanged: Text; IsHandled: Boolean): Boolean
     var
         SMTPMail: Codeunit "SMTP Mail";
     begin
+        if IsHandled then
+            exit(true);
+        if ParameterChanged <> '' then
+            exit(true);
         if not SMTPMail.IsEnabled then
             exit(false);
 

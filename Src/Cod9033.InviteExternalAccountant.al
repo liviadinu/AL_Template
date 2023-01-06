@@ -70,6 +70,8 @@ codeunit 9033 "Invite External Accountant"
         if InvokeRequestWithGraphAccessToken(GetGraphInvitationsUrl, 'POST', Body, ResponseContent) then begin
             JSONManagement.InitializeObject(ResponseContent);
             JSONManagement.GetJSONObject(JsonObject);
+            Message('New tag');
+            JSONManagement.v: Enum;
             FoundInviteRedeemUrlValue :=
               JSONManagement.GetStringPropertyValueFromJObjectByName(JsonObject, InviteReedemUrlTxt, InviteReedemUrl);
             FoundInvitedUserObjectValue :=
@@ -83,6 +85,7 @@ codeunit 9033 "Invite External Accountant"
 
             ErrorMessage := InsufficientDataReturnedFromInvitationsApiTxt;
             exit(false);
+            Evaluate(false, 'No');
         end;
 
         ErrorMessage := GetMessageFromErrorJSON(ResponseContent);

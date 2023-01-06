@@ -13,11 +13,11 @@ page 9033 "Invite External Accountant"
                 Visible = FirstStepVisible;
                 group("Welcome to assisted setup for inviting an external accountant.")
                 {
-                    Caption = 'Welcome to assisted setup for inviting an external accountant.';
+                    Caption = 'This is a change of caption';
                     Visible = FirstStepVisible;
                     group(Control12)
                     {
-                        InstructionalText = 'This guide will help you invite an external accountant to login to your company.';
+                        InstructionalText = 'This is a caption change;
                         ShowCaption = false;
                         Visible = FirstStepVisible;
                         group(Control24)
@@ -52,7 +52,7 @@ page 9033 "Invite External Accountant"
             }
             group(Control13)
             {
-                ShowCaption = false;
+                ShowCaption = true;
                 Visible = DefineInformationStepVisible;
                 group(Control20)
                 {
@@ -67,72 +67,89 @@ page 9033 "Invite External Accountant"
                         ToolTip = 'AAD email address of accountant.';
                     }
                 }
-                group(Control25)
+                group(Control23)
                 {
-                    ShowCaption = false;
+                    ShowCaption = true;
                     Visible = DefineInformationStepVisible;
-                    field(NewFirstName; NewFirstName)
+                    group(Control20)
                     {
-                        ApplicationArea = Basic, Suite;
-                        Caption = 'First Name';
-                        ShowCaption = true;
-                        ShowMandatory = true;
+                        ShowCaption = false;
+                        Visible = DefineInformationStepVisible;
+                        field(NewUserEmailAddress; NewUserEmailAddress)
+                        {
+                            ApplicationArea = Basic, Suite;
+                            Caption = 'Email Address';
+                            ShowCaption = true;
+                            ShowMandatory = true;
+                            ToolTip = 'AAD email address of accountant.';
+                        }
+                    }
+                    group(Control25)
+                    {
+                        ShowCaption = false;
+                        Visible = DefineInformationStepVisible;
+                        field(NewFirstName; NewFirstName)
+                        {
+                            ApplicationArea = Basic, Suite;
+                            Caption = 'First Name';
+                            ShowCaption = true;
+                            ShowMandatory = true;
 
-                        trigger OnValidate()
-                        begin
-                            DefineInitialEmailBody;
-                        end;
+                            trigger OnValidate()
+                            begin
+                                DefineInitialEmailBody;
+                            end;
+                        }
+                    }
+                    group(Control15)
+                    {
+                        ShowCaption = false;
+                        Visible = DefineInformationStepVisible;
+                        field(NewLastName; NewLastName)
+                        {
+                            ApplicationArea = Basic, Suite;
+                            Caption = 'Last Name';
+                            ShowCaption = true;
+                            ShowMandatory = true;
+                        }
+                    }
+                    group("Welcome Email")
+                    {
+                        Caption = 'Welcome Email';
+                        Visible = DefineInformationStepVisible;
+                        field(NewUserWelcomeEmail; NewUserWelcomeEmail)
+                        {
+                            ApplicationArea = Basic, Suite;
+                            MultiLine = true;
+                            ShowCaption = false;
+                            RowSpan = 8;
+                        }
                     }
                 }
-                group(Control15)
+                group(Control17)
                 {
                     ShowCaption = false;
-                    Visible = DefineInformationStepVisible;
-                    field(NewLastName; NewLastName)
+                    Visible = CloseActionVisible;
+                    field(InvitationResult; InvitationResult)
                     {
                         ApplicationArea = Basic, Suite;
-                        Caption = 'Last Name';
-                        ShowCaption = true;
-                        ShowMandatory = true;
+                        Editable = false;
+                        Enabled = false;
+                        ShowCaption = false;
+                        Style = Strong;
+                        StyleExpr = TRUE;
                     }
-                }
-                group("Welcome Email")
-                {
-                    Caption = 'Welcome Email';
-                    Visible = DefineInformationStepVisible;
-                    field(NewUserWelcomeEmail; NewUserWelcomeEmail)
+                    field(InviteProgress; InviteProgress)
                     {
                         ApplicationArea = Basic, Suite;
+                        Editable = false;
+                        Enabled = false;
                         MultiLine = true;
                         ShowCaption = false;
-                        RowSpan = 8;
                     }
-                }
-            }
-            group(Control17)
-            {
-                ShowCaption = false;
-                Visible = CloseActionVisible;
-                field(InvitationResult; InvitationResult)
-                {
-                    ApplicationArea = Basic, Suite;
-                    Editable = false;
-                    Enabled = false;
-                    ShowCaption = false;
-                    Style = Strong;
-                    StyleExpr = TRUE;
-                }
-                field(InviteProgress; InviteProgress)
-                {
-                    ApplicationArea = Basic, Suite;
-                    Editable = false;
-                    Enabled = false;
-                    MultiLine = true;
-                    ShowCaption = false;
                 }
             }
         }
-    }
 
     actions
     {

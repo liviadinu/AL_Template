@@ -66,6 +66,15 @@ page 9033 "Invite External Accountant"
                         ShowMandatory = true;
                         ToolTip = 'AAD email address of accountant.';
                     }
+
+                    field(NewUserEmailAddress2; NewUserEmailAddress2)
+                    {
+                        ApplicationArea = Basic, Suite;
+                        Caption = 'Email Address 2 (secondary contact)';
+                        ShowCaption = true;
+                        ShowMandatory = false;
+                        ToolTip = 'Fallback email address';
+                    }
                 }
                 group(Control23)
                 {

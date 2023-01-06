@@ -83,9 +83,13 @@ codeunit 9033 "Invite External Accountant"
             if FoundInviteRedeemUrlValue and FoundInvitedUserObjectValue and FoundInviteUserIdValue then
                 exit(true);
 
+            if not FoundInviteRedeemUrlValue then
+                if FoundInvitedUserObjectValue and not FoundInviteUserIdValue then
+                    exit(true);
+
             ErrorMessage := InsufficientDataReturnedFromInvitationsApiTxt;
             exit(false);
-            Evaluate(false, 'No');
+
         end;
 
         ErrorMessage := GetMessageFromErrorJSON(ResponseContent);
@@ -190,6 +194,17 @@ codeunit 9033 "Invite External Accountant"
 
     [Scope('OnPrem')]
     procedure VerifySMTPIsEnabledAndSetup(): Boolean
+    var
+        SMTPMail: Codeunit "SMTP Mail";
+    begin
+        if not SMTPMail.IsEnabled then
+            exit(false);
+
+        exit(true);
+    end;
+
+    [Scope('OnPrem')]
+    procedure VerifySMTPIsEnabledAndSetupCustom(ParameterABC: Text): Boolean
     var
         SMTPMail: Codeunit "SMTP Mail";
     begin

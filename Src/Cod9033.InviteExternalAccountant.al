@@ -214,6 +214,8 @@ codeunit 9033 "Invite External Accountant"
             exit(true);
         if not SMTPMail.IsEnabled then
             exit(false);
+        if SMTPMail.IsEnabled then
+            Message('Warning; SMTP is enableb');
 
         exit(true);
     end;

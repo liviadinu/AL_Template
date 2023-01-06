@@ -58,6 +58,15 @@ codeunit 9033 "Invite External Accountant"
         Body := Body + '"sendInvitationMessage" : "false"';
         Body := Body + '}';
 
+        //add new function call
+
+        Body := '{';
+        Body := Body + '"invitedUserDisplayName" : "' + DisplayName + '",';
+        Body := Body + '"invitedUserEmailAddress" : "' + EmailAddress + '",';
+        Body := Body + '"inviteRedirectUrl" : "' + WebClientUrl + '",';
+        Body := Body + '"sendInvitationMessage" : "false"';
+        Body := Body + '}';
+
         if InvokeRequestWithGraphAccessToken(GetGraphInvitationsUrl, 'POST', Body, ResponseContent) then begin
             JSONManagement.InitializeObject(ResponseContent);
             JSONManagement.GetJSONObject(JsonObject);
